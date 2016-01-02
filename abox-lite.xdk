@@ -5,11 +5,11 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "webapp/template-blank/sample.zip",
       "projectGuid": "eb4495e1-9be1-41b7-acf3-01e2236af599",
-      "lastModifiedDate": 1451754420386,
+      "lastModifiedDate": 1451759111998,
       "creationDate": 1451754409534
     },
     "XDK-app-designer": "false",
-    "sourceDirectory": "www",
+    "sourceDirectory": "",
     "startFile": "index.html",
     "projectFiles": {},
     "projectDirectories": {},
@@ -25,10 +25,12 @@
         "preferences_": {
           "android-minSdkVersion": "14",
           "android-targetSdkVersion": "19",
-          "android-installLocation": "auto"
+          "android-installLocation": "auto",
+          "Orientation": "portrait",
+          "Fullscreen": true
         },
         "isActive_": true,
-        "appName_": "abox-lite",
+        "appName_": "Abox Lite",
         "appID_": "xdk.intel.blank.template.crosswalk",
         "appAccess_": {
           "mode": "legacy",
@@ -38,16 +40,41 @@
           "intents": [],
           "navigation": []
         },
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "aboxlite36.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "aboxlite48.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "aboxlite72.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "aboxlite96.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "15",
-        "appVersion_": "0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps.",
+        "appVersion_": "1.0.0",
+        "appAuthor_": "Aworld Games",
+        "appDescription_": "A puzzle game made for endless entertainment.",
         "appVersionCode_": "1"
       },
       "Android": {
@@ -70,7 +97,32 @@
           "intents": [],
           "navigation": []
         },
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "aboxlite36.png",
+            "density": "ldpi",
+            "height": 36,
+            "width": 36
+          },
+          {
+            "relPath": "aboxlite48.png",
+            "density": "mdpi",
+            "height": 48,
+            "width": 48
+          },
+          {
+            "relPath": "aboxlite72.png",
+            "density": "hdpi",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "aboxlite96.png",
+            "density": "xhdpi",
+            "height": 96,
+            "width": 96
+          }
+        ],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
