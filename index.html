@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
-<!--
-  * Please see the included README.md file for license terms and conditions.
-  -->
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <head>
+            <!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+         <script type="text/javascript" charset="utf-8" src="intelxdk.js"></script>-->
 
-    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <style>
-        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
-        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
-        @-ms-viewport { width: 100vw ; zoom: 100% ; }  @viewport { width: 100vw ; zoom: 100% ; }
-        @-ms-viewport { user-zoom: fixed ; }           @viewport { user-zoom: fixed ; }
-    </style>
+    </head>
     <body>
     
 <!--    <script type="text/javascript" charset="utf-8" src="cordova.js"></script> -->
@@ -27,13 +19,16 @@
 //var myAudio = document.getElementById("myAudio");
 //myAudio.play();
 //var mediaObject = new Media("sounds/thefatrat-timelapse.mp3");
+var screenWidth = window.screen.availWidth;
+var screenHeight = window.screen.availHeight;
+var screenWidthRatio = screenWidth / 384;
+var screenHeightRatio = screenHeight / 610;
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = "375";
-canvas.height = "550";
-localStorage.levelN = 1;
+canvas.width = "375" * screenWidthRatio;
+canvas.height = "550" * screenHeightRatio;
 var width = canvas.width;
-var height = canvas.height;
+var heightA = canvas.height;
 var one;
 var two;
 var three;
@@ -48,7 +43,8 @@ var listLoc = [1];
 var win = [];
 var activate = 0;
 var maxLevel;
-var showInfo = 0;
+var showInfo = 1;
+localStorage.levelN = 1;
 //mediaObject.play();
 //intel.xdk.player.startAudio("sounds/thefatrat-timelapse.mp3", true);
 // Circles!
@@ -64,68 +60,68 @@ var circle = function (x, y, radius, fillCircle) {
 var graphicCircle = function(a,b,c,d,e,f,g,h) {
     ctx.fillStyle="crimson";
     ctx.strokeStyle = "crimson";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    circle(a, b, c, d);
-    ctx.moveTo(e, f);
-    ctx.lineTo(g, h);
+    circle(a * screenWidthRatio, b * screenHeightRatio, c * screenWidthRatio, d);
+    ctx.moveTo(e * screenWidthRatio, f * screenHeightRatio);
+    ctx.lineTo(g * screenWidthRatio, h * screenHeightRatio);
     ctx.stroke();
 }
 var drawName = function() {
     ctx.beginPath();
     ctx.strokeStyle = "dimgray";
-    ctx.lineWidth = 4;
-    ctx.moveTo(100,60);
-    ctx.lineTo(120,5);
-    ctx.lineTo(140,60);
-    ctx.moveTo(130,30);
-    ctx.lineTo(110,30);
-    ctx.moveTo(150,5);
-    ctx.lineTo(150,60);
+    ctx.lineWidth = 4 * screenWidthRatio;
+    ctx.moveTo(100 * screenWidthRatio,60 * screenHeightRatio);
+    ctx.lineTo(120 * screenWidthRatio,5 * screenHeightRatio);
+    ctx.lineTo(140 * screenWidthRatio,60 * screenHeightRatio);
+    ctx.moveTo(130 * screenWidthRatio,30 * screenHeightRatio);
+    ctx.lineTo(110 * screenWidthRatio,30 * screenHeightRatio);
+    ctx.moveTo(150 * screenWidthRatio,5 * screenHeightRatio);
+    ctx.lineTo(150 * screenWidthRatio,60 * screenHeightRatio);
     // Circle 1
     // Circle 2
     ctx.stroke();
     ctx.beginPath();
     ctx.strokeStyle = "crimson";
-    ctx.moveTo(185,25);
-    ctx.lineTo(225,65);
+    ctx.moveTo(185 * screenWidthRatio,25 * screenHeightRatio);
+    ctx.lineTo(225 * screenWidthRatio,65 * screenHeightRatio);
     ctx.stroke();
     ctx.beginPath();
     ctx.strokeStyle = "dimgray";
-    ctx.rect(230,30,30,30);
+    ctx.rect(230 * screenWidthRatio,30 * screenHeightRatio,30 * screenWidthRatio,30 * screenHeightRatio);
     ctx.stroke();
     ctx.beginPath();
     ctx.strokeStyle = "darkOrange";
-    ctx.moveTo(235,35);
-    ctx.lineTo(255,55);
-    ctx.moveTo(255,35);
-    ctx.lineTo(235,55);
+    ctx.moveTo(235 * screenWidthRatio,35 * screenHeightRatio);
+    ctx.lineTo(255 * screenWidthRatio,55 * screenHeightRatio);
+    ctx.moveTo(255 * screenWidthRatio,35 * screenHeightRatio);
+    ctx.lineTo(235 * screenWidthRatio,55 * screenHeightRatio);
     ctx.stroke();
     ctx.strokeStyle = "dimgray";
-    circle(165, 45, 15, false);
+    circle(165 * screenWidthRatio, 45 * screenHeightRatio, 15 * screenWidthRatio, false);
     ctx.strokeStyle = "crimson";
-    circle(205, 45, 15, false);
+    circle(205 * screenWidthRatio, 45 * screenHeightRatio, 15 * screenWidthRatio, false);
 }
 var drawX = function (a,b,c,d) {
     ctx.fillStyle="darkOrange";
     ctx.strokeStyle = "darkOrange";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.moveTo(a, b);
-    ctx.lineTo(c, d);
-    ctx.moveTo(a, d);
-    ctx.lineTo(c, b);
+    ctx.moveTo(a * screenWidthRatio, b * screenHeightRatio);
+    ctx.lineTo(c * screenWidthRatio, d * screenHeightRatio);
+    ctx.moveTo(a * screenWidthRatio, d * screenHeightRatio);
+    ctx.lineTo(c * screenWidthRatio, b * screenHeightRatio);
     ctx.stroke();
 }
 var drawT = function (a,b,c,d,e) {
     ctx.fillStyle="gold";
     ctx.strokeStyle = "gold";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.moveTo(a, b);
-    ctx.lineTo(c, d);
-    ctx.lineTo(e, d);
-    ctx.lineTo(a, b);
+    ctx.moveTo(a * screenWidthRatio, b * screenHeightRatio);
+    ctx.lineTo(c * screenWidthRatio, d * screenHeightRatio);
+    ctx.lineTo(e * screenWidthRatio, d * screenHeightRatio);
+    ctx.lineTo(a * screenWidthRatio, b * screenHeightRatio);
     ctx.stroke();
 }
 var locatePlayer = function () {
@@ -135,31 +131,31 @@ var locatePlayer = function () {
     ctx.fillStyle="lightblue";
     ctx.strokeStyle = "Gray";
     if (locate == 1) {
-    circle(65, 105, 10, true);
+    circle(65 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 2) {
-    circle(185, 105, 10, true);
+    circle(185 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 3) {
-    circle(305, 105, 10, true);
+    circle(305 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 4) {
-    circle(65, 225, 10, true);
+    circle(65 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 5) {
-    circle(185, 225, 10, true);
+    circle(185 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 6) {
-    circle(305, 225, 10, true);
+    circle(305 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 7) {
-    circle(65, 345, 10, true);
+    circle(65 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 8) {
-    circle(185, 345, 10, true);
+    circle(185 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 9) {
-    circle(305, 345, 10, true);
+    circle(305 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     ctx.stroke();
     if (moveGo && moveValid) {
@@ -171,68 +167,68 @@ var locatePlayer = function () {
 var drawS = function (a,b) {
     ctx.fillStyle="lime";
     ctx.strokeStyle = "lime";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.rect(a,b,50,50);
+    ctx.rect(a * screenWidthRatio,b * screenHeightRatio,50 * screenWidthRatio,50 * screenHeightRatio);
     ctx.stroke();
 }
 var drawPent = function (a,b,c,d,e,f,g,h,i) {
     ctx.fillStyle="skyblue";
     ctx.strokeStyle = "skyblue";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.moveTo(a,g);
-    ctx.lineTo(b,h);
-    ctx.lineTo(c,i);
-    ctx.lineTo(d,i);
-    ctx.lineTo(e,h);
-    ctx.lineTo(f,g);
+    ctx.moveTo(a * screenWidthRatio,g * screenHeightRatio);
+    ctx.lineTo(b * screenWidthRatio,h * screenHeightRatio);
+    ctx.lineTo(c * screenWidthRatio,i * screenHeightRatio);
+    ctx.lineTo(d * screenWidthRatio,i * screenHeightRatio);
+    ctx.lineTo(e * screenWidthRatio,h * screenHeightRatio);
+    ctx.lineTo(f * screenWidthRatio,g * screenHeightRatio);
     ctx.stroke();
 }
 var drawHex = function (a,b) {
     ctx.fillStyle="darkblue";
     ctx.strokeStyle = "darkblue";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.moveTo((a + 10),b);
-    ctx.lineTo((a - 5),(b + 25));
-    ctx.lineTo((a + 10),(b + 50));
-    ctx.lineTo((a + 30),(b + 50));
-    ctx.lineTo((a + 45),(b + 25));
-    ctx.lineTo((a + 30),b);
-    ctx.lineTo((a + 10),b);
+    ctx.moveTo((a + 10) * screenWidthRatio,b * screenHeightRatio);
+    ctx.lineTo((a - 5) * screenWidthRatio,(b + 25) * screenHeightRatio);
+    ctx.lineTo((a + 10) * screenWidthRatio,(b + 50) * screenHeightRatio);
+    ctx.lineTo((a + 30) * screenWidthRatio,(b + 50) * screenHeightRatio);
+    ctx.lineTo((a + 45) * screenWidthRatio,(b + 25) * screenHeightRatio);
+    ctx.lineTo((a + 30) * screenWidthRatio,b * screenHeightRatio);
+    ctx.lineTo((a + 10) * screenWidthRatio,b * screenHeightRatio);
     ctx.stroke();
 }
 var drawHepta = function (a,b) {
     ctx.fillStyle="purple";
     ctx.strokeStyle = "purple";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.moveTo((a + 65),(b + 80))
-    ctx.lineTo((a + 50),(b + 90))
-    ctx.lineTo((a + 40),(b + 110))
-    ctx.lineTo((a + 55),(b + 130))
-    ctx.lineTo((a + 75),(b + 130))
-    ctx.lineTo((a + 90),(b + 110))
-    ctx.lineTo((a + 80),(b + 90))
-    ctx.lineTo((a + 65),(b + 80))
+    ctx.moveTo((a + 65) * screenWidthRatio,(b + 80) * screenHeightRatio)
+    ctx.lineTo((a + 50) * screenWidthRatio,(b + 90) * screenHeightRatio)
+    ctx.lineTo((a + 40) * screenWidthRatio,(b + 110) * screenHeightRatio)
+    ctx.lineTo((a + 55) * screenWidthRatio,(b + 130) * screenHeightRatio)
+    ctx.lineTo((a + 75) * screenWidthRatio,(b + 130) * screenHeightRatio)
+    ctx.lineTo((a + 90) * screenWidthRatio,(b + 110) * screenHeightRatio)
+    ctx.lineTo((a + 80) * screenWidthRatio,(b + 90) * screenHeightRatio)
+    ctx.lineTo((a + 65) * screenWidthRatio,(b + 80) * screenHeightRatio)
     ctx.stroke();
 }
 var rumble = 0;
 var drawContents = function(a, b, c, d, e, f, g, h, i) {
     // Create main nine squares
-    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, heightA);
     ctx.fillStyle="dimgray";
     ctx.strokeStyle = "Gray";
-    ctx.fillRect((30 + rumble),70,70,70);
-    ctx.fillRect((150 + rumble),70,70,70);
-    ctx.fillRect((270 + rumble),70,70,70);
-    ctx.fillRect((30 + rumble),190,70,70);
-    ctx.fillRect((150 + rumble),190,70,70);
-    ctx.fillRect((270 + rumble),190,70,70);
-    ctx.fillRect((30 + rumble),310,70,70);
-    ctx.fillRect((150 + rumble),310,70,70);
-    ctx.fillRect((270 + rumble),310,70,70);
+    ctx.fillRect((30 + rumble) * screenWidthRatio,70 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((150 + rumble) * screenWidthRatio,70 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((270 + rumble) * screenWidthRatio,70 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((30 + rumble) * screenWidthRatio,190 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((150 + rumble) * screenWidthRatio,190 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((270 + rumble) * screenWidthRatio,190 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((30 + rumble) * screenWidthRatio,310 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((150 + rumble) * screenWidthRatio,310 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
+    ctx.fillRect((270 + rumble) * screenWidthRatio,310 * screenHeightRatio,70 * screenWidthRatio,70 * screenHeightRatio);
     drawName();
     drawInfo();
     drawRelevel();
@@ -245,7 +241,7 @@ var drawContents = function(a, b, c, d, e, f, g, h, i) {
     // Make Symbols
     ctx.fillStyle="dimgray";
     ctx.strokeStyle = "Gray";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
     if (a == 2) {
         drawX(40,80,90,130);
@@ -440,37 +436,42 @@ var drawContents = function(a, b, c, d, e, f, g, h, i) {
     locateOverlap();
 }
 var drawRelevel = function () {
-    if (randomCounter == 1) {
-        ctx.fillStyle="dimgray";
-        ctx.strokeStyle = "dimgray";
-        ctx.lineWidth = 4;
+        ctx.fillStyle="green";
+        ctx.strokeStyle = "green";
+        ctx.lineWidth = 4 * screenWidthRatio;
         ctx.beginPath();
-        ctx.moveTo(10,40);
-        ctx.lineTo(10,10);
-        ctx.lineTo(50,10);
-        ctx.moveTo(40, 0);
-        ctx.lineTo(50,10);
-        ctx.lineTo(40,20);
-        ctx.moveTo(50,20);
-        ctx.lineTo(50,50);
-        ctx.lineTo(10,50);
-        ctx.moveTo(20,40);
-        ctx.lineTo(10,50);
-        ctx.lineTo(20,60);
+        ctx.fillRect(5 * screenWidthRatio,5 * screenHeightRatio,80 * screenWidthRatio,50 * screenHeightRatio)
         ctx.stroke();
-    }
+        ctx.fillStyle="white";
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 4 * screenWidthRatio;
+        ctx.beginPath();
+        ctx.font = (15 * screenWidthRatio) + 'pt Calibri';
+        posX = 10 * screenWidthRatio;
+        posY = 30 * screenHeightRatio;
+        textValue = "Buy Full";
+        ctx.fillText(textValue, posX, posY);
+        posY += spaceLines;
+        textValue = "version";
+        ctx.fillText(textValue, posX, posY);
 }
 var drawInfo = function () {
-    ctx.fillStyle="dimgray";
-    ctx.strokeStyle = "dimgray";
-    ctx.lineWidth = 4;
+    if (showInfo == 1) {
+    ctx.fillStyle = "forestgreen";
+    ctx.strokeStyle = "forestgreen";
+    }
+    else {
+    ctx.fillStyle = "red";
+    ctx.strokeStyle = "red";
+    }
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.font = '30pt Calibri';
-    posX = 315;
-    posY = 43;
+    ctx.font = (30 * screenWidthRatio) + 'pt Calibri';
+    posX = 315 * screenWidthRatio;
+    posY = 43 * screenHeightRatio;
     textValue = "i";
     ctx.fillText(textValue, posX, posY);
-    circle(320, 30, 20, false);
+    circle(320 * screenWidthRatio, 30 * screenHeightRatio, 20 * screenWidthRatio, false);
 }
 var createWin = function () {
     win = [];
@@ -502,76 +503,76 @@ var createWin = function () {
         win.push(9)
     }
 }
+var spaceLines = 18 * screenHeightRatio;
 var textValue;
 var randomCounter = 0;
 var drawText = function () {
     ctx.fillStyle="dimgray";
     ctx.strokeStyle = "dimgray";
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 4 * screenWidthRatio;
     ctx.beginPath();
-    ctx.font = '20pt Calibri';
-    posX = 145;
-    posY = 405;
+    ctx.font = (20 * screenWidthRatio) + 'pt Calibri';
+    posX = 145 * screenWidthRatio;
+    posY = 405 * screenHeightRatio;
     textValue = "Level " + (Number(localStorage.levelN) + randomCounter);
     ctx.fillText(textValue, posX, posY);
-    posX = 10;
-    posY = 435;
-    ctx.font = '15pt Calibri';
+    posX = 10 * screenWidthRatio;
+    posY = 435 * screenHeightRatio;
+    ctx.font = (15 * screenWidthRatio) + 'pt Calibri';
     if (randomCounter == 1) {
         textValue = "You got to the end!!!! You are victorious!";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "But, the fun is not over! Play infinite";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "levels here! They are randomly";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "generated. In case of an impossible";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "generate, hit the icon in the top left,";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "the one with arrows and a square.";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
     }
     else if (Number(localStorage.levelN) == 1) {
         textValue = "Welcome to Abox! To get started, swipe";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "around the screen. You should notice";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "symbol appearing on squares you have";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "hopped on (you are the blue dot).";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "Try getting that symbol on every square";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "without touching a square you had";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "already hopped on.";
         ctx.fillText(textValue, posX, posY);
     }
     else if (Number(localStorage.levelN) == 2) {
         textValue = "Good job! Now, you see that X symbol?";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "Don't be afraid, try hopping on it. If you";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "did, you saw that it turned into a normal";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "space. Per round, hit that X two times";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "instead of once!";
         ctx.fillText(textValue, posX, posY);
     }
@@ -586,7 +587,7 @@ var drawText = function () {
     else if (Number(localStorage.levelN) == 5) {
         textValue = "Gah! A triangle! Just hop on it three";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "times.";
         ctx.fillText(textValue, posX, posY);
     }
@@ -597,14 +598,14 @@ var drawText = function () {
     else if (Number(localStorage.levelN) == 7) {
         textValue = "You're welcome. I've completed some";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "squares for you already.";
         ctx.fillText(textValue, posX, posY);
     }
     else if (Number(localStorage.levelN) == 8) {
         textValue = "I think completing squares ahead of";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "time only making things harder...";
         ctx.fillText(textValue, posX, posY);
     }
@@ -623,7 +624,7 @@ var drawText = function () {
     else if (Number(localStorage.levelN) == 12) {
         textValue = "Is there anything possibly worse";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "than squares!?";
         ctx.fillText(textValue, posX, posY);
     }
@@ -639,40 +640,22 @@ var drawText = function () {
         textValue = "5 features... one level...";
         ctx.fillText(textValue, posX, posY);
     }
-    else if (Number(localStorage.levelN) == 16) {
-        textValue = "Oh no...";
+    else if (Number(localStorage.levelN) == 16) { 
+        textValue = "To continue, buy the full version."; 
         ctx.fillText(textValue, posX, posY);
-    }
-    else if (Number(localStorage.levelN) == 17) {
-        textValue = "It's here...";
-        ctx.fillText(textValue, posX, posY);
-    }
-    else if (Number(localStorage.levelN) == 18) {
-        textValue = "Go quick, this mysterious thing has";
-        ctx.fillText(textValue, posX, posY);
-        posY += 18;
-        textValue = "tricks up its sleeve...";
-        ctx.fillText(textValue, posX, posY);
-        posY += 18;
-        textValue = "Remember: clocks time you!";
-        ctx.fillText(textValue, posX, posY);
-    }
-    else if (Number(localStorage.levelN) == 19) {
-        textValue = "To continue, buy the full version.";
-        ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "Save your level stage...";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "INFINITE levels...";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "New shapes...";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "Bossfights and masked levels...";
         ctx.fillText(textValue, posX, posY);
-        posY += 18;
+        posY += spaceLines;
         textValue = "...and more!";
         ctx.fillText(textValue, posX, posY);
     }
@@ -888,31 +871,31 @@ var locateOverlap = function () {
     ctx.fillStyle="lightblue";
     ctx.strokeStyle = "Gray";
     if (locate == 1) {
-    circle(65, 105, 10, true);
+    circle(65 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 2) {
-    circle(185, 105, 10, true);
+    circle(185 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 3) {
-    circle(305, 105, 10, true);
+    circle(305 * screenWidthRatio, 105 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 4) {
-    circle(65, 225, 10, true);
+    circle(65 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 5) {
-    circle(185, 225, 10, true);
+    circle(185 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 6) {
-    circle(305, 225, 10, true);
+    circle(305 * screenWidthRatio, 225 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 7) {
-    circle(65, 345, 10, true);
+    circle(65 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 8) {
-    circle(185, 345, 10, true);
+    circle(185 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     else if (locate == 9) {
-    circle(305, 345, 10, true);
+    circle(305 * screenWidthRatio, 345 * screenHeightRatio, 10 * screenWidthRatio, true);
     }
     ctx.stroke();
 }
@@ -1076,7 +1059,7 @@ if(!(localStorage.levelN)) {
     localStorage.levelN = 1;
 }
 clearTimeout(timerId);
-maxLevel = 103;
+maxLevel = 16;
 win = [];
 clearInterval(timerId);
 maxChars = 7;
@@ -1147,23 +1130,6 @@ if (Number(localStorage.levelN) == 15) {
     createWin();
 }
 if (Number(localStorage.levelN) == 16) {
-    setAllVars(1,0,0,1,0,0,0,0,0);
-    createWin();
-    beginRumble = true;
-}
-if (Number(localStorage.levelN) == 17) {
-    setAllVars(1,0,0,1,0,0,0,0,0);
-    createWin();
-    clearRumble();
-    beginRumble = true;
-}
-if (Number(localStorage.levelN) == 18) {
-    setAllVars(1,0,0,1,0,0,0,0,0);
-    createWin();
-    clearRumble();
-    beginRumble = true;
-}
-if (Number(localStorage.levelN) == 19) {
     setAllVars(1,1,0,1,0,6,0,6,7);
     createWin();
     clearRumble();
@@ -1649,7 +1615,7 @@ if (y > i) {
     drawLevel();
 }
 if (listLoc.sort().join(',')=== win.sort().join(',')){
-    localStorage.levelN++;
+    localStorage.levelN++
     checkLevel();
     locate = 1;
     listLoc = [];
@@ -1667,7 +1633,7 @@ function getPosition(event) {
     y = event.y;
     x -= canvas.offsetLeft;
     y -= canvas.offsetTop;
-    if ((x < 341 && x > 299) && (y < 51 && y > 9)) {
+    if ((x < 341 * screenWidthRatio && x > 299 * screenWidthRatio) && (y < 51 * screenHeightRatio && y > 9 * screenWidthRatio)) {
         if (showInfo == 0) {
         showInfo = 1;
         drawContents(oneA, twoA, threeA, fourA, fiveA, sixA, sevenA, eightA, nineA);
@@ -1677,10 +1643,11 @@ function getPosition(event) {
         drawContents(oneA, twoA, threeA, fourA, fiveA, sixA, sevenA, eightA, nineA);
         }
     }
-    else if (((x < 51 && x > 9) && (y < 51 && y > 9)) && randomCounter == 1) {
-        activate = 0;
-        randomLevel();
-        drawLevel();
+    else if (((x < 81 * screenWidthRatio && x > 9 * screenWidthRatio) && (y < 51 * screenHeightRatio && y > 9 * screenHeightRatio))) {
+        // Android
+        //location.assign("https://play.google.com/store/apps/details?id=com.aworld.abox&hl=en");
+        // Apple
+        location.assign("https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076218878&mt=8");
     }
 }
 // Swipe Detection

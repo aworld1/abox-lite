@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "webapp/template-blank/sample.zip",
       "projectGuid": "eb4495e1-9be1-41b7-acf3-01e2236af599",
-      "lastModifiedDate": 1451759111998,
+      "lastModifiedDate": 1453005939103,
       "creationDate": 1451754409534
     },
     "XDK-app-designer": "false",
@@ -31,7 +31,7 @@
         },
         "isActive_": true,
         "appName_": "Abox Lite",
-        "appID_": "xdk.intel.blank.template.crosswalk",
+        "appID_": "com.aworld.aboxlite",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -72,10 +72,10 @@
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "15",
-        "appVersion_": "1.0.0",
+        "appVersion_": "1.0.2",
         "appAuthor_": "Aworld Games",
         "appDescription_": "A puzzle game made for endless entertainment.",
-        "appVersionCode_": "1"
+        "appVersionCode_": "3"
       },
       "Android": {
         "platform_": "android",
@@ -84,11 +84,13 @@
         "preferences_": {
           "android-minSdkVersion": "14",
           "android-targetSdkVersion": "19",
-          "android-installLocation": "auto"
+          "android-installLocation": "auto",
+          "Orientation": "portrait",
+          "Fullscreen": true
         },
         "isActive_": true,
-        "appName_": "abox-lite",
-        "appID_": "xdk.intel.blank.template",
+        "appName_": "Abox Lite",
+        "appID_": "com.aworld.aboxlite",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -129,22 +131,24 @@
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
-        "appVersion_": "0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps.",
-        "appVersionCode_": "1"
+        "appVersion_": "1.0.2",
+        "appAuthor_": "Aworld Games",
+        "appDescription_": "A puzzle game made for endless entertainment.",
+        "appVersionCode_": "3"
       },
       "iOS": {
         "platform_": "ios",
         "runtime_": "W3C on Cordova",
         "name_": "iOS",
         "preferences_": {
-          "ios-target": "6",
-          "ios-configuration": "adhoc"
+          "ios-target": "8.0",
+          "ios-configuration": "adhoc",
+          "Fullscreen": true,
+          "Orientation": "portrait"
         },
         "isActive_": true,
-        "appName_": "abox-lite",
-        "appID_": "xdk.intel.blank.template",
+        "appName_": "Abox Lite",
+        "appID_": "com.aworld.aboxlite",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -153,16 +157,97 @@
           "intents": [],
           "navigation": []
         },
-        "icons_": [],
+        "icons_": [
+          {
+            "relPath": "AboxLite29.png",
+            "height": 29,
+            "width": 29
+          },
+          {
+            "relPath": "AboxLite58.png",
+            "height": 58,
+            "width": 58
+          },
+          {
+            "relPath": "AboxLite87.png",
+            "height": 87,
+            "width": 87
+          },
+          {
+            "relPath": "AboxLite60.png",
+            "height": 60,
+            "width": 60
+          },
+          {
+            "relPath": "AboxLite120.png",
+            "height": 120,
+            "width": 120
+          },
+          {
+            "relPath": "AboxLite180.png",
+            "height": 180,
+            "width": 180
+          },
+          {
+            "relPath": "AboxLite76.png",
+            "height": 76,
+            "width": 76
+          },
+          {
+            "relPath": "AboxLite152.png",
+            "height": 152,
+            "width": 152
+          },
+          {
+            "relPath": "AboxLite40.png",
+            "height": 40,
+            "width": 40
+          },
+          {
+            "relPath": "AboxLite80.png",
+            "height": 80,
+            "width": 80
+          },
+          {
+            "relPath": "AboxLite57.png",
+            "height": 57,
+            "width": 57
+          },
+          {
+            "relPath": "AboxLite114.png",
+            "height": 114,
+            "width": 114
+          },
+          {
+            "relPath": "AboxLite72.png",
+            "height": 72,
+            "width": 72
+          },
+          {
+            "relPath": "AboxLite144.png",
+            "height": 144,
+            "width": 144
+          },
+          {
+            "relPath": "AboxLite50.png",
+            "height": 50,
+            "width": 50
+          },
+          {
+            "relPath": "AboxLite100.png",
+            "height": 100,
+            "width": 100
+          }
+        ],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
-        "appVersion_": "0.0.1",
-        "appAuthor_": "Intel XDK",
-        "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps."
+        "appVersion_": "1.0.1",
+        "appAuthor_": "Aworld Games",
+        "appDescription_": "A puzzle game made for endless entertainment."
       },
       "Windows8": {
         "platform_": "windows8",
