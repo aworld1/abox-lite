@@ -1,82 +1,31 @@
 {
   "project": {
-    "projectSettingsVersion": "2.0.0",
+    "projectSettingsVersion": "3.0.0",
     "creationData": {
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "webapp/template-blank/sample.zip",
       "projectGuid": "eb4495e1-9be1-41b7-acf3-01e2236af599",
-      "lastModifiedDate": 1453005939103,
+      "lastModifiedDate": 1468084875930,
       "creationDate": 1451754409534
     },
     "XDK-app-designer": "false",
     "sourceDirectory": "",
     "startFile": "index.html",
-    "projectFiles": {},
+    "projectFiles": {
+      "xdk-publish-meta-data.json": {
+        "settings": {
+          "project": {
+            "XDK-not-deployed": "True"
+          }
+        }
+      }
+    },
     "projectDirectories": {},
     "libraries": [],
     "serviceMethods": [],
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [],
     "buildConfigurations": {
-      "Android-Crosswalk": {
-        "platform_": "android",
-        "runtime_": "W3C on Crosswalk",
-        "name_": "Android-Crosswalk",
-        "preferences_": {
-          "android-minSdkVersion": "14",
-          "android-targetSdkVersion": "19",
-          "android-installLocation": "auto",
-          "Orientation": "portrait",
-          "Fullscreen": true
-        },
-        "isActive_": true,
-        "appName_": "Abox Lite",
-        "appID_": "com.aworld.aboxlite",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
-        "icons_": [
-          {
-            "relPath": "aboxlite36.png",
-            "density": "ldpi",
-            "height": 36,
-            "width": 36
-          },
-          {
-            "relPath": "aboxlite48.png",
-            "density": "mdpi",
-            "height": 48,
-            "width": 48
-          },
-          {
-            "relPath": "aboxlite72.png",
-            "density": "hdpi",
-            "height": 72,
-            "width": 72
-          },
-          {
-            "relPath": "aboxlite96.png",
-            "density": "xhdpi",
-            "height": 96,
-            "width": 96
-          }
-        ],
-        "splashes_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "iosProvs_": [],
-        "cordovaCLIVersion_": "5.1.1",
-        "crosswalkVersion_": "15",
-        "appVersion_": "1.0.2",
-        "appAuthor_": "Aworld Games",
-        "appDescription_": "A puzzle game made for endless entertainment.",
-        "appVersionCode_": "3"
-      },
       "Android": {
         "platform_": "android",
         "runtime_": "W3C on Cordova",
@@ -128,34 +77,36 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
-        "crosswalkVersion_": "14",
         "appVersion_": "1.0.2",
         "appAuthor_": "Aworld Games",
         "appDescription_": "A puzzle game made for endless entertainment.",
-        "appVersionCode_": "3"
+        "appVersionCode_": "3",
+        "crosswalkVersion_": "16"
       },
       "iOS": {
         "platform_": "ios",
         "runtime_": "W3C on Cordova",
         "name_": "iOS",
         "preferences_": {
-          "ios-target": "8.0",
           "ios-configuration": "adhoc",
           "Fullscreen": true,
-          "Orientation": "portrait"
+          "Orientation": "portrait",
+          "deployment-target": "7.0"
         },
         "isActive_": true,
         "appName_": "Abox Lite",
         "appID_": "com.aworld.aboxlite",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [
           {
@@ -242,6 +193,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
@@ -261,17 +213,19 @@
         "appName_": "abox-lite",
         "appID_": "xdk.intel.blank.template",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
@@ -299,6 +253,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps."
@@ -323,6 +278,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps."
@@ -347,6 +303,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps."
@@ -371,6 +328,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appDescription_": "Use this template to start with a simple index.html file for creating mobile web apps."
@@ -393,6 +351,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.0.1",
         "cordovaCLIVersion_": "5.1.1"
       }
